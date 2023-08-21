@@ -1,0 +1,112 @@
+/* Reset and common styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.calculator {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #f96f86; /* Orange color */
+    text-shadow: 0px 0px 10px rgba(249, 111, 134, 0.8); /* Glowing effect */
+    animation: glow 2s infinite alternate; /* Animation for glowing effect */
+}
+
+.calculator input[type="text"] {
+    width: 100%;
+    padding: 2px 2px 10px 10px; /* Adjust padding */
+    font-size: 24px; /* Adjust font size */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    outline: none;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calculator .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calculator input[type="button"] {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%; /* Make the button circular */
+    cursor: pointer;
+    color: #ffffffaf;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0px 2px 4px #f9b5b5;
+}
+
+/* Different background colors for the buttons */
+.calculator input[type="button"][value="+"], .calculator input[type="button"][value="-"] {
+    background-color: #7bbeec; /* Blue */
+}
+
+.calculator input[type="button"][value="*"], .calculator input[type="button"][value="/"] {
+    background-color: #5ef49c; /* Green */
+}
+
+.calculator input[type="button"][value="Clear"], .calculator input[type="button"][value="="] {
+    background-color: #f89e95; /* Red */
+}
+
+.calculator input[type="button"][value="sin"], .calculator input[type="button"][value="cos"] {
+    background-color: #fb8484; /* Pink */
+}
+
+.calculator input[type="button"][value="tan"], .calculator input[type="button"][value="sqrt"] {
+    background-color: #fb8484;
+}
+
+/* Hover styles */
+.calculator input[type="button"]:hover {
+    background-color: #d4f06f;
+}
+
+.calculator input[type="button"][value="Clear"], .calculator input[type="button"][value="="] {
+    background-color: #fa6ac3; /* Darker pink */
+}
+
+/* Other color classes and button styles can be added here */
+.calculator input[type="button"] {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%; /* Make the button circular */
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #f96f86; /* Orange */
+    transition: background-color 0.3s ease-in-out;
+}
+.calculator input[type="button"][value="sin"], .calculator input[type="button"][value="cos"],
+.calculator input[type="button"][value="tan"], .calculator input[type="button"][value="sqrt"],
+.calculator input[type="button"][value="log"] {
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0px 0px 10px rgba(249, 111, 134, 0.8);
+    }
+    to {
+        text-shadow: 0px 0px 15px rgba(249, 111, 134, 1);
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Scientific Calculator</h1>
+        <form name="format">
+            <input type="text" name="answer" readonly>
+            <div class="row">
+                <input type="button" value="7" onclick="format.answer.value+='7'">
+                <input type="button" value="8" onclick="format.answer.value+='8'">
+                <input type="button" value="9" onclick="format.answer.value+='9'">
+                <input type="button" value="+" onclick="format.answer.value+='+'">
+                <input type="button" value="-" onclick="format.answer.value+='-'">
+            </div>
+            <div class="row">
+                <input type="button" value="4" onclick="format.answer.value+='4'">
+                <input type="button" value="5" onclick="format.answer.value+='5'">
+                <input type="button" value="6" onclick="format.answer.value+='6'">
+                <input type="button" value="*" onclick="format.answer.value+='*'">
+                <input type="button" value="/" onclick="format.answer.value+='/'">
+            </div>
+            <div class="row">
+                <input type="button" value="1" onclick="format.answer.value+='1'">
+                <input type="button" value="2" onclick="format.answer.value+='2'">
+                <input type="button" value="3" onclick="format.answer.value+='3'">
+                <input type="button" value="0" onclick="format.answer.value+='0'">
+                <input type="button" value="AC" onclick="format.answer.value=''">
+            </div>
+            <div class="row">
+                <input type="button" value="sin" onclick="format.answer.value='Math.sin('+format.answer.value+')'">
+                <input type="button" value="cos" onclick="format.answer.value='Math.cos('+format.answer.value+')'">
+                <input type="button" value="tan" onclick="format.answer.value='Math.tan('+format.answer.value+')'">
+                <input type="button" value="√" onclick="format.answer.value='Math.sqrt('+format.answer.value+')'">
+                <input type="button" value="log" onclick="format.answer.value='Math.log('+format.answer.value+')'">
+            </div>
+            <div class="row">
+                <input type="button" value="^" onclick="format.answer.value+='**'">
+                <input type="button" value="!" onclick="format.answer.value=factorial(eval(format.answer.value))">
+                <input type="button" value="." onclick="format.answer.value+='.'">
+                <input type="button" value="=" onclick="format.answer.value=eval(format.answer.value)">
+                <input type="button" value="del" onclick="deleteLastCharacter()" class="btn-red">
+            </div>
+        </form>
+    </div>
+    <script>
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * factorial(n - 1);
+        }
+        function deleteLastCharacter() {
+            var currentText = format.answer.value;
+            format.answer.value = currentText.slice(0, -1);
+        }
+        // Add event listener to capture keyboard input
+        document.addEventListener("keydown", function (event) {
+            const key = event.key;
+
+            // Check for numeric keys and operators
+            if (/^[0-9+\-*/.^]$/.test(key)) {
+                format.answer.value += key;
+            } else if (key === "Enter") {
+                format.answer.value = eval(format.answer.value);
+            } else if (key === "Backspace") {
+                deleteLastCharacter();
+            }
+        });
+    </script>
+</body>
+</html>
